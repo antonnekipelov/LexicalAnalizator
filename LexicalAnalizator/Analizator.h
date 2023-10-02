@@ -50,6 +50,9 @@ namespace LexicalAnalizator {
 	private: System::Windows::Forms::ToolStripMenuItem^ î÷èñòèòüÊîäToolStripMenuItem;
 	private: System::Windows::Forms::DataGridView^ dataGridView1;
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::ToolStripMenuItem^ àíàëèçèðîâàòüToolStripMenuItem1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Lexem;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^ Class;
 	protected:
 
 	private:
@@ -70,12 +73,15 @@ namespace LexicalAnalizator {
 			this->çàãðóçèòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->àíàëèçèðîâàòüToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->î÷èñòèòüÊîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->àíàëèçèðîâàòüToolStripMenuItem1 = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			this->richTextBox2 = (gcnew System::Windows::Forms::RichTextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->Lexem = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Class = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->menuStrip1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel1->SuspendLayout();
@@ -110,11 +116,13 @@ namespace LexicalAnalizator {
 			// 
 			// àíàëèçèðîâàòüToolStripMenuItem
 			// 
-			this->àíàëèçèðîâàòüToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->î÷èñòèòüÊîäToolStripMenuItem });
+			this->àíàëèçèðîâàòüToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
+				this->î÷èñòèòüÊîäToolStripMenuItem,
+					this->àíàëèçèðîâàòüToolStripMenuItem1
+			});
 			this->àíàëèçèðîâàòüToolStripMenuItem->Name = L"àíàëèçèðîâàòüToolStripMenuItem";
-			this->àíàëèçèðîâàòüToolStripMenuItem->Size = System::Drawing::Size(131, 24);
-			this->àíàëèçèðîâàòüToolStripMenuItem->Text = L"Àíàëèçèðîâàòü";
-			this->àíàëèçèðîâàòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &Analizator::àíàëèçèðîâàòüToolStripMenuItem_Click);
+			this->àíàëèçèðîâàòüToolStripMenuItem->Size = System::Drawing::Size(74, 24);
+			this->àíàëèçèðîâàòüToolStripMenuItem->Text = L"Àíàëèç";
 			// 
 			// î÷èñòèòüÊîäToolStripMenuItem
 			// 
@@ -122,6 +130,13 @@ namespace LexicalAnalizator {
 			this->î÷èñòèòüÊîäToolStripMenuItem->Size = System::Drawing::Size(224, 26);
 			this->î÷èñòèòüÊîäToolStripMenuItem->Text = L"Î÷èñòèòü êîä";
 			this->î÷èñòèòüÊîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &Analizator::î÷èñòèòüÊîäToolStripMenuItem_Click);
+			// 
+			// àíàëèçèðîâàòüToolStripMenuItem1
+			// 
+			this->àíàëèçèðîâàòüToolStripMenuItem1->Name = L"àíàëèçèðîâàòüToolStripMenuItem1";
+			this->àíàëèçèðîâàòüToolStripMenuItem1->Size = System::Drawing::Size(224, 26);
+			this->àíàëèçèðîâàòüToolStripMenuItem1->Text = L"Àíàëèçèðîâàòü";
+			this->àíàëèçèðîâàòüToolStripMenuItem1->Click += gcnew System::EventHandler(this, &Analizator::àíàëèçèðîâàòüToolStripMenuItem1_Click);
 			// 
 			// richTextBox1
 			// 
@@ -154,6 +169,10 @@ namespace LexicalAnalizator {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(2) {
+				this->Lexem,
+					this->Class
+			});
 			this->dataGridView1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->dataGridView1->Location = System::Drawing::Point(0, 0);
 			this->dataGridView1->Name = L"dataGridView1";
@@ -172,6 +191,22 @@ namespace LexicalAnalizator {
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(349, 553);
 			this->panel1->TabIndex = 6;
+			// 
+			// Lexem
+			// 
+			this->Lexem->HeaderText = L"Ëåêñåìà";
+			this->Lexem->MinimumWidth = 6;
+			this->Lexem->Name = L"Lexem";
+			this->Lexem->ReadOnly = true;
+			this->Lexem->Width = 125;
+			// 
+			// Class
+			// 
+			this->Class->HeaderText = L"Êëàññ";
+			this->Class->MinimumWidth = 6;
+			this->Class->Name = L"Class";
+			this->Class->ReadOnly = true;
+			this->Class->Width = 125;
 			// 
 			// Analizator
 			// 
@@ -448,1288 +483,6 @@ namespace LexicalAnalizator {
 			file->Close();
 		}
 	}
-	private: System::Void àíàëèçèðîâàòüToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
-	{
-		String^ text = richTextBox2->Text;
-		String^ word = "";
-		DataGridViewRow^ row = gcnew DataGridViewRow();
-		DataGridViewCell^ cell1 = gcnew DataGridViewTextBoxCell();
-		cell1->Value = "Lexem";
-		DataGridViewCell^ cell2 = gcnew DataGridViewTextBoxCell();
-		cell2->Value = "Class";
-		row->Cells->Add(cell1);
-		row->Cells->Add(cell2);
-		dataGridView1->Rows->Add(row);
-		int states = 0;
-		//for each(char ch in text)
-		int count_r = 0;
-		for(int i = 0; i<text->Length; i++)
-			switch (states)
-			{ 
-				case 0:
-				
-					if (text[i] == '#')
-					{
-						states = 1;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'a')
-					{
-						states = 2;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'b')
-					{
-						states = 3;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'c')
-					{
-						states = 4;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'd')
-					{
-						states = 5;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'e')
-					{
-						states = 6;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'f')
-					{
-						states = 7;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'g')
-					{
-						states = 8;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'h')
-					{
-						states = 9;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'i')
-					{
-						states = 10;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'j')
-					{
-						states = 11;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'k')
-					{
-						states = 12;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'l')
-					{
-						states = 13;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'm')
-					{
-						states = 14;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'n')
-					{
-						states = 15;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'o')
-					{
-						states = 16;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'p')
-					{
-						states = 17;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'q')
-					{
-						states = 19;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'r')
-					{
-						states = 20;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 's')
-					{
-						states = 21;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 't')
-					{
-						states = 22;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'u')
-					{
-						states = 23;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'v')
-					{
-						states = 24;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'w')
-					{
-						states = 25;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'x')
-					{
-						states = 26;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'y')
-					{
-						states = 27;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'z')
-					{
-						states = 28;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == 'A')
-					{
-						states = 29;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'B')
-					{
-						states = 30;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'C')
-					{
-						states = 31;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'D')
-					{
-						states = 32;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'E')
-					{
-						states = 33;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'F')
-					{
-						states = 34;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'G')
-					{
-						states = 35;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'H')
-					{
-						states = 36;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'I')
-					{
-						states = 37;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'J')
-					{
-						states = 38;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'K')
-					{
-						states = 39;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'L')
-					{
-						states = 40;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'M')
-					{
-						states = 41;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'N')
-					{
-						states = 42;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'O')
-					{
-						states = 43;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'P')
-					{
-						states = 44;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'Q')
-					{
-						states = 45;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'R')
-					{
-						states = 46;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'S')
-					{
-						states = 47;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'T')
-					{
-						states = 48;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'U')
-					{
-						states = 49;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'V')
-					{
-						states = 50;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'W')
-					{
-						states = 51;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'X')
-					{
-						states = 52;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'Y')
-					{
-						states = 53;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == 'Z')
-					{
-						states = 54;
-						word += text[i];
-						//continue;
-						}
-					else if (text[i] == '+')
-					{
-						states = 55;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '-')
-					{
-						states = 56;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '*')
-					{
-						states = 57;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '/')
-					{
-						states = 58;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '%')
-					{
-						states = 59;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '=')
-					{
-						states = 60;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '!')
-					{
-						states = 61;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '<')
-					{
-						states = 62;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '>')
-					{
-						states = 63;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '&')
-					{
-						states = 64;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '|')
-					{
-						states = 65;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '^')
-					{
-						states = 66;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '~')
-					{
-						states = 67;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '.')
-					{
-						states = 68;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == ':')
-					{
-						states = 69;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '(')
-					{
-						states = 70;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == ')')
-					{
-						states = 71;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '[')
-					{
-						states = 72;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == ']')
-					{
-						states = 73;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '{')
-					{
-						states = 74;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '}')
-					{
-						states = 75;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == ';')
-					{
-						states = 76;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == ',')
-					{
-						states = 77;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '?')
-					{
-						states = 78;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '_')
-					{
-						states = 79;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '\'')
-					{
-						states = 80;
-						word += text[i];
-						//continue;
-					}
-					else if (text[i] == '"')
-					{
-						states = 81;
-						word += text[i];
-						//continue;
-					}
-					else if (isdigit(text[i]))
-					{
-						states = 82;
-						word += text[i];
-						//continue;
-					}
-					else
-					{
-						states = 83;
-						word = "";
-						//continue;
-					}
-					break;
-				case 1:
-					if (text[i] == 'd')
-					{
-						states = 84;
-						word += text[i];
-					}
-					else if (text[i] == 'e')
-					{
-						states = 85;
-						word += text[i];
-					}
-					else if (text[i] == 'i')
-					{
-						states = 86;
-						word += text[i];
-					}
-					else if (text[i] == 'l')
-					{
-						states = 87;
-						word += text[i];
-					}
-					else if (text[i] == 'p')
-					{
-						states = 88;
-						word += text[i];
-					}
-					else if (text[i] == 'u')
-					{
-						states = 89;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 84:
-					if (text[i] == 'e')
-					{
-						states = 90;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word += text[i];
-					}
-					break;
-				case 90:
-					if (text[i] == 'f')
-					{
-						states = 91;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word += text[i];
-					}
-					break;
-				case 91:
-					if (text[i] == 'i')
-					{
-						states = 92;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 92:
-					if (text[i] == 'n')
-					{
-						states = 93;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 93:
-					if (text[i] == 'e')
-					{
-						states = 94;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 94:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word += text[i];
-					}
-					break;
-				case 85:
-					if (text[i] == 'l')
-					{
-						states = 95;
-						word += text[i];
-					}
-					else if (text[i] == 'n')
-					{
-						states = 96;
-						word += text[i];
-					}
-					else if (text[i] == 'r')
-					{
-						count_r++;
-						states = 97;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 95:
-					if (text[i] == 'i')
-					{
-						states = 98;
-						word += text[i];
-					}
-					else if (text[i] == 's')
-					{
-						states = 99;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 98:
-					if (text[i] == 'f')
-					{
-						states = 100;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 100:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 99:
-					if (text[i] == 'e')
-					{
-						states = 101;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 101:
-					if (text[i] == '\n')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 96:
-					if (text[i] == 'd')
-					{
-						states = 102;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 102:
-					if (text[i] == 'i')
-					{
-						states = 103;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 103:
-					if (text[i] == 'f')
-					{
-						states = 104;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 104:
-					if (text[i] == '\n')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 97:
-					if (text[i] == 'r' && count_r == 1)
-					{
-						count_r++;
-						word += text[i];
-					}
-					if (text[i] == 'o')
-					{
-						states = 105;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 105:
-					if (text[i] == 'r')
-					{
-						states = 106;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 106:
-					if (text[i] == ' ')
-					{
-
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 86:
-					if (text[i] == 'f')
-					{
-						states = 107;
-						word += text[i];
-					}
-					else if (text[i] == 'm')
-					{
-						states = 108;
-						word += text[i];
-					}
-					else if (text[i] == 'n')
-					{
-						states = 109;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 107:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else if (text[i] == 'd')
-					{
-						states = 110;
-						word += text[i];
-					}
-					else if (text[i] == 'n')
-					{
-						states = 111;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 110:
-					if (text[i] == 'e')
-					{
-						states = 112;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 112:
-					if (text[i] == 'f')
-					{
-						states = 113;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 113:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 111:
-					if (text[i] == 'd')
-					{
-						states = 110;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 108:
-					if (text[i] == 'p')
-					{
-						states = 114;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 114:
-					if (text[i] == 'o')
-					{
-						states = 115;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 115:
-					if (text[i] == 'r')
-					{
-						states = 116;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 116:
-					if (text[i] == 't')
-					{
-						states = 117;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 117:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 109:
-					if (text[i] == 'c')
-					{
-						states = 118;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 118:
-					if (text[i] == 'l')
-					{
-						states = 119;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 119:
-					if (text[i] == 'u')
-					{
-						states = 120;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 120:
-					if (text[i] == 'd')
-					{
-						states = 121;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 121:
-					if (text[i] == 'e')
-					{
-						states = 122;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 122:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 87:
-					if (text[i] == 'i')
-					{
-						states = 123;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 123:
-					if (text[i] == 'n')
-					{
-						states = 124;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 124:
-					if (text[i] == 'e')
-					{
-						states = 125;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 125:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 88:
-					if (text[i] == 'r')
-					{
-						states = 126;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 126:
-					if (text[i] == 'a')
-					{
-						states = 127;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 127:
-					if (text[i] == 'g')
-					{
-						states = 128;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 128:
-					if (text[i] == 'm')
-					{
-						states = 129;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 129:
-					if (text[i] == 'a')
-					{
-						states = 130;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 130:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 89:
-					if (text[i] == 'n')
-					{
-						states = 131;
-						word += text[i];
-					}
-					else if (text[i] == 's')
-					{
-						states = 132;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 131:
-					if (text[i] == 'd')
-					{
-						states = 110;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 132:
-					if (text[i] == 'i')
-					{
-						states = 133;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 133:
-					if (text[i] == 'n')
-					{
-						states = 134;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-				case 134:
-					if (text[i] == 'g')
-					{
-						states = 135;
-						word += text[i];
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;case 135:
-					if (text[i] == ' ')
-					{
-						states = 0;
-						cell1->Value = word;
-						cell2->Value = "Directive";
-						row->Cells->Add(cell1);
-						row->Cells->Add(cell2);
-						dataGridView1->Rows->Add(row);
-						word = "";
-					}
-					else
-					{
-						states = 83;
-						word = "";
-					}
-					break;
-			}
-	}
 					
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e)
 	{
@@ -1742,5 +495,1267 @@ namespace LexicalAnalizator {
 		String^ text = richTextBox2->Text;
 		RemoveCommentsAndFormat(richTextBox2);
 	}
+private: System::Void àíàëèçèðîâàòüToolStripMenuItem1_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ text =  richTextBox2->Text;
+	String^ word = "";
+	DataGridViewRow^ row = gcnew DataGridViewRow();
+	int states = 0;
+	//for each(char ch in text)
+	int count_r = 0;
+	for (int i = 0; i < text->Length; i++)
+		switch (states)
+		{
+		case 0:
+
+			if (text[i] == '#')
+			{
+				states = 1;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'a')
+			{
+				states = 2;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'b')
+			{
+				states = 3;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'c')
+			{
+				states = 4;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'd')
+			{
+				states = 5;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'e')
+			{
+				states = 6;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'f')
+			{
+				states = 7;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'g')
+			{
+				states = 8;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'h')
+			{
+				states = 9;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'i')
+			{
+				states = 10;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'j')
+			{
+				states = 11;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'k')
+			{
+				states = 12;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'l')
+			{
+				states = 13;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'm')
+			{
+				states = 14;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'n')
+			{
+				states = 15;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'o')
+			{
+				states = 16;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'p')
+			{
+				states = 17;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'q')
+			{
+				states = 19;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'r')
+			{
+				states = 20;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 's')
+			{
+				states = 21;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 't')
+			{
+				states = 22;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'u')
+			{
+				states = 23;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'v')
+			{
+				states = 24;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'w')
+			{
+				states = 25;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'x')
+			{
+				states = 26;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'y')
+			{
+				states = 27;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'z')
+			{
+				states = 28;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'A')
+			{
+				states = 29;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'B')
+			{
+				states = 30;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'C')
+			{
+				states = 31;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'D')
+			{
+				states = 32;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'E')
+			{
+				states = 33;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'F')
+			{
+				states = 34;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'G')
+			{
+				states = 35;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'H')
+			{
+				states = 36;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'I')
+			{
+				states = 37;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'J')
+			{
+				states = 38;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'K')
+			{
+				states = 39;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'L')
+			{
+				states = 40;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'M')
+			{
+				states = 41;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'N')
+			{
+				states = 42;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'O')
+			{
+				states = 43;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'P')
+			{
+				states = 44;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'Q')
+			{
+				states = 45;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'R')
+			{
+				states = 46;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'S')
+			{
+				states = 47;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'T')
+			{
+				states = 48;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'U')
+			{
+				states = 49;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'V')
+			{
+				states = 50;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'W')
+			{
+				states = 51;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'X')
+			{
+				states = 52;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'Y')
+			{
+				states = 53;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == 'Z')
+			{
+				states = 54;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '+')
+			{
+				states = 55;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '-')
+			{
+				states = 56;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '*')
+			{
+				states = 57;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '/')
+			{
+				states = 58;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '%')
+			{
+				states = 59;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '=')
+			{
+				states = 60;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '!')
+			{
+				states = 61;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '<')
+			{
+				states = 62;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '>')
+			{
+				states = 63;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '&')
+			{
+				states = 64;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '|')
+			{
+				states = 65;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '^')
+			{
+				states = 66;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '~')
+			{
+				states = 67;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '.')
+			{
+				states = 68;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == ':')
+			{
+				states = 69;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '(')
+			{
+				states = 70;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == ')')
+			{
+				states = 71;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '[')
+			{
+				states = 72;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == ']')
+			{
+				states = 73;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '{')
+			{
+				states = 74;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '}')
+			{
+				states = 75;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == ';')
+			{
+				states = 76;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == ',')
+			{
+				states = 77;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '?')
+			{
+				states = 78;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '_')
+			{
+				states = 79;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '\'')
+			{
+				states = 80;
+				word += text[i];
+				//continue;
+			}
+			else if (text[i] == '"')
+			{
+				states = 81;
+				word += text[i];
+				//continue;
+			}
+			/*else if (isdigit(text[i]))
+			{
+				states = 82;
+				word += text[i];
+				//continue;
+			}*/
+			else
+			{
+				states = 83;
+				word = "";
+				//continue;
+			}
+			break;
+		case 1:
+			if (text[i] == 'd')
+			{
+				states = 84;
+				word += text[i];
+			}
+			else if (text[i] == 'e')
+			{
+				states = 85;
+				word += text[i];
+			}
+			else if (text[i] == 'i')
+			{
+				states = 86;
+				word += text[i];
+			}
+			else if (text[i] == 'l')
+			{
+				states = 87;
+				word += text[i];
+			}
+			else if (text[i] == 'p')
+			{
+				states = 88;
+				word += text[i];
+			}
+			else if (text[i] == 'u')
+			{
+				states = 89;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 84:
+			if (text[i] == 'e')
+			{
+				states = 90;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word += text[i];
+			}
+			break;
+		case 90:
+			if (text[i] == 'f')
+			{
+				states = 91;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word += text[i];
+			}
+			break;
+		case 91:
+			if (text[i] == 'i')
+			{
+				states = 92;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 92:
+			if (text[i] == 'n')
+			{
+				states = 93;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 93:
+			if (text[i] == 'e')
+			{
+				states = 94;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 94:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word += text[i];
+			}
+			break;
+		case 85:
+			if (text[i] == 'l')
+			{
+				states = 95;
+				word += text[i];
+			}
+			else if (text[i] == 'n')
+			{
+				states = 96;
+				word += text[i];
+			}
+			else if (text[i] == 'r')
+			{
+				count_r++;
+				states = 97;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 95:
+			if (text[i] == 'i')
+			{
+				states = 98;
+				word += text[i];
+			}
+			else if (text[i] == 's')
+			{
+				states = 99;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 98:
+			if (text[i] == 'f')
+			{
+				states = 100;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 100:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 99:
+			if (text[i] == 'e')
+			{
+				states = 101;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 101:
+			if (text[i] == '\n')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 96:
+			if (text[i] == 'd')
+			{
+				states = 102;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 102:
+			if (text[i] == 'i')
+			{
+				states = 103;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 103:
+			if (text[i] == 'f')
+			{
+				states = 104;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 104:
+			if (text[i] == '\n')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 97:
+			if (text[i] == 'r' && count_r == 1)
+			{
+				count_r++;
+				word += text[i];
+			}
+			if (text[i] == 'o')
+			{
+				states = 105;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 105:
+			if (text[i] == 'r')
+			{
+				states = 106;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 106:
+			if (text[i] == ' ')
+			{
+
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 86:
+			if (text[i] == 'f')
+			{
+				states = 107;
+				word += text[i];
+			}
+			else if (text[i] == 'm')
+			{
+				states = 108;
+				word += text[i];
+			}
+			else if (text[i] == 'n')
+			{
+				states = 109;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 107:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else if (text[i] == 'd')
+			{
+				states = 110;
+				word += text[i];
+			}
+			else if (text[i] == 'n')
+			{
+				states = 111;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 110:
+			if (text[i] == 'e')
+			{
+				states = 112;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 112:
+			if (text[i] == 'f')
+			{
+				states = 113;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 113:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 111:
+			if (text[i] == 'd')
+			{
+				states = 110;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 108:
+			if (text[i] == 'p')
+			{
+				states = 114;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 114:
+			if (text[i] == 'o')
+			{
+				states = 115;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 115:
+			if (text[i] == 'r')
+			{
+				states = 116;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 116:
+			if (text[i] == 't')
+			{
+				states = 117;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 117:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 109:
+			if (text[i] == 'c')
+			{
+				states = 118;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 118:
+			if (text[i] == 'l')
+			{
+				states = 119;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 119:
+			if (text[i] == 'u')
+			{
+				states = 120;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 120:
+			if (text[i] == 'd')
+			{
+				states = 121;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 121:
+			if (text[i] == 'e')
+			{
+				states = 122;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 122:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 87:
+			if (text[i] == 'i')
+			{
+				states = 123;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 123:
+			if (text[i] == 'n')
+			{
+				states = 124;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 124:
+			if (text[i] == 'e')
+			{
+				states = 125;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 125:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 88:
+			if (text[i] == 'r')
+			{
+				states = 126;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 126:
+			if (text[i] == 'a')
+			{
+				states = 127;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 127:
+			if (text[i] == 'g')
+			{
+				states = 128;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 128:
+			if (text[i] == 'm')
+			{
+				states = 129;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 129:
+			if (text[i] == 'a')
+			{
+				states = 130;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 130:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 89:
+			if (text[i] == 'n')
+			{
+				states = 131;
+				word += text[i];
+			}
+			else if (text[i] == 's')
+			{
+				states = 132;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 131:
+			if (text[i] == 'd')
+			{
+				states = 110;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 132:
+			if (text[i] == 'i')
+			{
+				states = 133;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 133:
+			if (text[i] == 'n')
+			{
+				states = 134;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		case 134:
+			if (text[i] == 'g')
+			{
+				states = 135;
+				word += text[i];
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+		break; case 135:
+			if (text[i] == ' ')
+			{
+				states = 0;
+				row->CreateCells(this->dataGridView1);  // ñîçäàíèå ÿ÷ååê äëÿ ñòðîêè íà îñíîâå ñòðóêòóðû DataGridView
+				row->Cells[0]->Value = word;
+				row->Cells[1]->Value = "Directive";
+				this->dataGridView1->Rows->Add(row);
+				word = "";
+			}
+			else
+			{
+				states = 83;
+				word = "";
+			}
+			break;
+		}
+}
 };
 }
